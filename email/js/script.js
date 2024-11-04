@@ -1,29 +1,36 @@
 
-//Mail
-//Chiedi all’utente la sua email,
-//controlla che sia nella lista di chi può accedere,
-//stampa un messaggio appropriato sull’esito del controllo.
 
-//Istruzioni
-// -inserisco userEmail
-// -per ogni email in mylist confronto con userEmail
-// -se my list email e'uguale a userEmail stampo messaggio "email e'gia'presente'
-// -altrimenti stampo messaggio "email valida"
-
+// dichiarazioni di variabili
 const userEmail = prompt("inserisci la tua email")
+const myList = ["anna@gmail.com", "beatrice@gmail.com", "chiara@gmail.com", "daria@gmail.com"];
+let isFound = false; // boolean
 
-const myList = ["maria@gmail.com", "anna@gmail.com", "sara@gmail.com"]
-
-let message;
-
-for (let i=0; i<myList.length; i++) {
+// business logic
+for (let i = 0; i < myList.length; i++) {
     const currentEmail = myList[i];
     if (userEmail === currentEmail) {
-        message = "email presente"    
-    } else { 
-        message = "email non presente" 
-    }console.log(message)
-
+        isFound = true;
+    }
 }
 
+// output
+if (isFound === true) {
+    console.log("la mail di " + userEmail + " è stata trovata, Login effettuato!");
+} else {
+    console.error("Non puoi accedere");
+}
 
+/////////////////// Opzione 2 ////////////////////////
+
+const userEmail = prompt("inserisci la tua email", "beatrice@gmail.com") // beatrice
+const myList = ["anna@gmail.com", "beatrice@gmail.com", "chiara@gmail.com", "daria@gmail.com"];
+let message = 'non e presente'
+
+// business logic
+for (let i = 0; i < myList.length; i++) {
+    const currentEmail = myList[i];
+    if (userEmail === currentEmail) {
+        message = "e'presente"
+    } 
+}
+ console.log(message) //stampa l ultimo valore assegnato alla variabile message
